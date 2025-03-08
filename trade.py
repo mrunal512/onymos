@@ -6,7 +6,7 @@
 # TODO: Remove the import and move the class definition to this file
 
 from heap import *
-from random import randint
+from random import randint, choice
 
 class StockEngine:
 
@@ -86,7 +86,20 @@ class StockEngine:
 
         # TODO: Maybe convert to while loop instead of traversal to mimic continous matchOrder thread
 
-    
+    def addRandomOrder(self):
+        '''
+        Function: addRandomOrder
+        Wrapper function around addOrder to add random valid 
+        order to simulate active stock transacations
+        '''
+        
+        tickerId = randint(0, 1023)
+        price = randint(1000)
+        quantity = randint(1000)
+        orderType = choice(["Buy", "Sell"])
+
+        self.addOrder(orderType, tickerId, quantity, price)
+        
 
 
                     
